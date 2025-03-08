@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/edit.css" />
+    <title>Edit User</title>
+  </head>
+  <body>
+    <form action="/user/delete/<%= result.id %>?_method=DELETE" method="post">
+      <div class="input-field">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value="<%= result.username %>"
+          readonly
+        />
+      </div>
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+      <div class="btns">
+        <button type="reset" id="cancel" class="cancel">Cancel</button>
+        <button type="reset" id="home" class="home">Back to Home</button>
+        <button class="update" type="submit">Delete</button>
+      </div>
+
+      <input type="text" value="<%= result.email %>" id="check-email" />
+      <input type="text" value="<%= result.password %>" id="check-pass" />
+    </form>
+
+    <script>
+      let homeBtn = document.getElementById("home");
+      homeBtn.addEventListener("click", () => {
+        window.location = "/";
+      });
+      let cancelBtn = document.getElementById("cancel");
+      cancelBtn.addEventListener("click", () => {
+        window.location = "/user";
+      });
+
+      let form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        // e.preventDefault()
+        let checkEmail = document.getElementById("check-email");
+        let checkPass = document.getElementById("check-pass");
+        let pass = document.getElementById("password");
+        let email = document.getElementById("email");
+        if (pass.value != checkPass.value || email.value != checkEmail.value) {
+          alert(`Something wen't Wrong...Please check email or password`);
+          e.preventDefault();
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>

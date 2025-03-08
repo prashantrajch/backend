@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="/styles/chat.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <h1>Chat Room</h1>
+      <div id="messages">
+        <% chats.forEach(message => { %>
+        <div class="message-box">
+          <p><strong>From:</strong> <%= message.from %></p>
+          <p><strong>To:</strong> <%= message.to %></p>
+          <p><strong>Message:</strong> <%= message.msg %></p>
+          <p>
+            <span><%= message.create_at.toString().split(' ').slice(0,4).join(' ') %></span>
+            <span><%= message.create_at.toString().split(' ')[4] %></span>
+          </p>
+          <div class="message-actions">
+            <form action="/chat/<%= message._id %>/edit" method="GET">
+              <button class="btn-edit">Edit</button>
+            </form>
+            <form action="/chat/<%= message._id%>" method="GET">
+              <button class="btn-edit">Show</button>
+            </form>
+            <form action="/chat/<%= message._id%>?_method=DELETE" method="post">
+              <button class="btn-delete">Delete</button>
+            </form>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

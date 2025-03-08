@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+    <title>Show All Users</title>
+  </head>
+  <body>
+    <a href="/" class="home">Back to home</a>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% result.forEach((value) => { %>
+        <tr>
+          <td><%= value.id %></td>
+          <td><%= value.username %></td>
+          <td><%= value.email %></td>
+          <td><a href="/user/edit/<%=value.id%>" class="edit">Edit</a></td>
+          <td><a href="/user/delete/<%= value.id %>" class="delete">Delete</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

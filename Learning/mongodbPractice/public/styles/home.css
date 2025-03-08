@@ -1,0 +1,60 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #4caf50;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+a:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+a:active {
+  transform: translateY(1px);
+}
+
+/* Container for Centering Content */
+.container {
+  text-align: center;
+}
+
+.chat-container {
+  width: 60%;
+  margin-top: 20px;
+}
+
+.message {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

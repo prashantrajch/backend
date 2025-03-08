@@ -1,0 +1,19 @@
+<%- include("head.ejs") %>
+<body>
+    <h1>Instagram</h1>
+    <h3>Your id is @<%= data.name %></h3>
+    <p>Followers &nbsp; <%= data.followers %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Following &nbsp; <%= data.following%></p>
+    <hr>
+    <div class="container">
+        
+        <% for (const post of data.posts) { %>
+            <div class="card">
+                <img src="<%= post.image %>" alt="" width="100%">
+                <p>Likes &nbsp; <%= post.likes %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comments &nbsp; <%= post.comments %></p>
+            </div>
+            <% } %>
+    </div>
+
+    <script src="/hello.js"></script>
+</body>
+</html>

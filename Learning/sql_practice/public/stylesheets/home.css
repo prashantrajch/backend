@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  body {
+    background-color: #023047;
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  p {
+    margin: 40px 0;
+    font-size: 22px;
+  }
+  .unique {
+    color: #219ebc;
+  }
+  .number {
+    color: #ffb703;
+  }
+  button {
+    padding: 0.5rem 1.2rem;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .show {
+    background-color: #fb8500;
+  }
+
+  .add {
+    background-color: green;
+    margin-left: 40px;
+  }

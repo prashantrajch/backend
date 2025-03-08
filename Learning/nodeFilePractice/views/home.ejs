@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('head') %>
+  <body>
+    <h1>Task App</h1>
+    <form action="/create" method="post">
+      <input
+        type="text"
+        placeholder="Enter a title of task"
+        name="title"
+        required
+      />
+      <textarea
+        rows="3"
+        name="task"
+        placeholder="Enter the task description like:- (Buy a mango)"
+      ></textarea>
+      <button>Create Task</button>
+    </form>
+    <hr />
+    <div class="tasks">
+      <%if ( files.length > 0) { %> <% files.forEach((value) => { %>
+      <div class="task">
+        <h3><%= value.split('.')[0] %></h3>
+        <div class="btns">
+          <a href="/show/<%= value.split('.')[0] %>">Read more</a>
+          <a href="/edit/<%= value.split('.')[0] %>">Edit</a>
+        </div>
+      </div>
+      <% }) %> <% } else { %>
+      <h2>No task here....</h2>
+      <% } %>
+    </div>
+  </body>
+</html>

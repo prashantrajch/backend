@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/edit.css" />
+    <title>Edit User</title>
+  </head>
+  <body>
+    <form action="/user/add" method="post">
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required/>
+      </div>
+      <div class="input-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div class="input-field">
+        <label for="cnfPass">Confirm Password</label>
+        <input type="password" id="cnfPass" name="cnfPass" required />
+      </div>
+      <div class="btns">
+        <button type="reset" id="cancel" class="cancel">Cancel</button>
+        <button type="reset" id="home" class="home">Back to Home</button>
+        <button class="update" type="submit">Add in DB</button>
+      </div>
+    </form>
+
+    <script>
+      let homeBtn = document.getElementById("home");
+      homeBtn.addEventListener("click", () => {
+        window.location = "/";
+      });
+      let cancelBtn = document.getElementById("cancel");
+      cancelBtn.addEventListener("click", () => {
+        window.location = "/user";
+      });
+
+      const form = document.querySelector('form')
+      form.addEventListener('submit', (e) =>{
+        let pass = e.target[2].value;
+        let cnfpass = e.target[3].value;
+        if(pass != cnfpass){
+          e.preventDefault();
+          alert(`Password doesn't match...try again`);
+          return;
+        }
+        alert('Now your data be added in dbms');
+      })
+
+
+      
+    </script>
+  </body>
+</html>

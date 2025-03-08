@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home.css">
+    <title>Home of REST API</title>
+</head>
+<body>
+    <div class="container">
+        <div class="btns">
+            <button onclick="goLink()">Creat New Posts</button>
+        </div>
+        
+        <div class="post-container">
+            <%posts.forEach((post) => { %>
+                <div class="post-card">
+                    <h1 class="username">@<%= post.username %></h1>
+                    <p class="content"><%= post.content %></p>
+                    <div class="post-btns">
+                        <a href="/posts/<%=post.id%>" class="btn">Show Details</a>
+                        <a href="/posts/<%=post.id%>/edit" class="btn">Edit Post</a>
+                        <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+                            <button class="btn" style="background-color: red;color: #fff;">Delete</button>
+                        </form>
+                    </div>
+                </div>
+               <% }) %>
+        </div>
+    </div>
+
+    <script>
+        function goLink(){
+            window.location.href = '/posts/new'
+        }
+    </script>
+</body>
+</html>

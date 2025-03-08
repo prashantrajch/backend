@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('head') %>
+<body>
+    <a href="/" class="back-btn">Back to home</a>
+    <h1>Edit App Open</h1>
+    <form action="/edit" method="post">
+        <div class="form">
+            <div class="inputField">
+                <label for="oldname">Old Name</label>
+                <input type="text" placeholder="Old file name" name="oldname" id="oldname" value="<%= filename %>" readonly>
+            </div>
+            <div class="inputField">
+                <label for="oldname">New Name</label>
+                <input type="text" placeholder="New file name" name="newname" id="newname" required>
+            </div>
+            <button>Update Name</button>
+        </div>
+    </form>
+</body>
+</html>

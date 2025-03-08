@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/new.css" />
+    <title>New Post</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/ig/<%=post.id%>?_method=patch" method="post">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter a username"
+              value="<%=post.username %>"
+              disabled
+            />
+            <textarea name="content" id="content" cols="" rows="10" placeholder="Write here post / content"><%=post.content%></textarea>
+        <button>Update Post</button>
+      </form>
+    </div>
+  </body>
+</html>

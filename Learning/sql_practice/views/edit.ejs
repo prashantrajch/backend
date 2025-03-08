@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/edit.css" />
+    <title>Edit User</title>
+  </head>
+  <body>
+    <form action="/user/edit/<%= result.id %>?_method=PATCH" method="post">
+      <div class="input-field">
+        <label for="userId">Id</label>
+        <input type="text" id="userId" name="id" value="<%= result.id %>" readonly/>
+      </div>
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<%= result.email %>" readonly/>
+      </div>
+      <div class="input-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="<%= result.username %>" />
+      </div>
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+      <input type="text" value="<%= result.password %>" id="check-pass">
+      <div class="btns">
+        <button type="reset" id="cancel" class="cancel">Cancel</button>
+        <button type="reset" id="home" class="home">Back to Home</button>
+        <button class="update" type="submit">Update</button>
+      </div>
+    </form>
+
+    <script>
+      let homeBtn = document.getElementById("home");
+      homeBtn.addEventListener("click", () => {
+        window.location = "/";
+      });
+      let cancelBtn = document.getElementById("cancel");
+      cancelBtn.addEventListener("click", () => {
+        window.location = "/user";
+      });
+
+      let form = document.querySelector('form');
+      form.addEventListener("submit",(e) =>{
+        // e.preventDefault()
+        let checkPass = document.getElementById('check-pass');
+        let pass = document.getElementById('password');
+        if(pass.value != checkPass.value){
+          alert(`Password  doesn't match`);
+          e.preventDefault();
+        }
+      })
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+body{
+    background-color: pink;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 5px;;
+}
+
+.card img{
+    height: 250px;
+}
